@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a Scanner object to get input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the name
+        System.out.print("Please enter your name: ");
+        String name = scanner.nextLine(); // Read user input as a String
+
+        // Prompt the user to enter the age
+        System.out.print("Please enter your age: ");
+        int age = scanner.nextInt(); // Read user input as an int
+
+        // Consume the newline character left in the buffer
+        scanner.nextLine();
+
+        // Prompt the user to enter the city of living
+        System.out.print("Please enter the city where you live: ");
+        String city = scanner.nextLine(); // Read user input as a String
+
+        // Prompt the user to enter their favorite color
+        System.out.print("Please enter your favorite color: ");
+        String favoriteColor = scanner.nextLine(); // Read user input as a String
+
+        // Prompt the user to enter their occupation
+        System.out.print("Please enter your occupation: ");
+        String occupation = scanner.nextLine(); // Read user input as a String
+
+        // Prompt the user to enter their favorite food
+        System.out.print("Please enter your favorite food: ");
+        String favoriteFood = scanner.nextLine(); // Read user input as a String
+
+        // Output the information provided by the user
+        System.out.println("Your name is " + name + ".");
+        System.out.println("You are " + age + " years old and you live in " + city + ".");
+        System.out.println("Your favorite color is " + favoriteColor + ".");
+        System.out.println("You work as a " + occupation + ".");
+        System.out.println("Your favorite food is " + favoriteFood + ".");
+        System.out.println("Thank you for providing information. Have a great day!");
+
+        // Close the Scanner object to release resources
+        scanner.close();
+    }
+}
