@@ -20,3 +20,31 @@ public class Main {
 }
 
 
+// 
+Guess a number inbetween 0 and 100
+You can provide the user with information, whether or not the number is bigger or less than the guess 
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+  public static void main(String[] args) {
+
+    Random random = new Random();
+    int randomNumber = random.nextInt(100);
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("I have thought a number between 0 and 100. Try to guess it. Type a number:");
+    int number = scanner.nextInt();
+    while (number != randomNumber) {
+      if (number > randomNumber) {
+        System.out.println("Wrong. My number is smaller. Try again: ");
+      }
+      else if (number < randomNumber) {
+        System.out.println("Wrong. My number is bigger. Try again: ");
+      }
+      number = scanner.nextInt();
+    }
+    System.out.println("That's correct!");
+    scanner.close();
+  }  
+}
