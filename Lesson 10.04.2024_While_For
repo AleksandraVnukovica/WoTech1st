@@ -1,3 +1,8 @@
+The for loop is typically used when you know the exact number of iterations/loops or when you need to iterate over a range of values.
+
+The while loop is typically used when you need to repeatedly execute a block of code until a specific condition becomes false or true.
+
+
 // public class Main {
 //   public static void main(String[] args) {
 
