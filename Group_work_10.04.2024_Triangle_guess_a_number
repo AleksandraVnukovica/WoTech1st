@@ -1,0 +1,22 @@
+// Draw a triangle
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+
+    Scanner scanner = new Scanner(System.in);//opening a channel
+    System.out.println("Hello! I can draw you a triangle out of '_' symbols. How many lines should it be?");
+    int number = scanner.nextInt();
+    for (int i = 0; i < number; i++) {
+      for (int line = 0; line <= i; line++) {
+        System.out.print("_");
+      }
+      System.out.println();
+    scanner.close(); //Closing the channel
+   // scanner.nextLine(); // Waits for us to provide a string until pressed enter
+    }
+  }  
+}
+
+
