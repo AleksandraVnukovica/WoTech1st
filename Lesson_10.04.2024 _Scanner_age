@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+
+    Scanner scanner = new Scanner(System.in);//opening a channel
+    System.out.println("Hello");
+    int age;
+    System.out.println("What is your age?");
+    age = scanner.nextInt(); //Waits for us to provide an integer
+    System.out.println("The users age is: " + age);
+    scanner.close(); //Closing the channel
+   // scanner.nextLine(); // Waits for us to provide a string until pressed enter
+  }  
+}
