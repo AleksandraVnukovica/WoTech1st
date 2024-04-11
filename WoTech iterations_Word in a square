@@ -1,0 +1,44 @@
+Team work: Develop a program, that iterates through numbers from 0 till X amount of times (X is user provided)
+For numbers that are divided by 3: print out "Wo" .
+
+For numbers that are divided by 5: print out "Tech". 
+
+For numbers divided by 3 and 5: print out "WoTech".
+
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+
+    Scanner scanner = new Scanner(System.in); 
+    System.out.println("Please write a number!");
+    int number = scanner.nextInt(); 
+
+    //1. Get user input - number
+    //2. Print numbers from 1 to number on each line
+    //3. Create for loop from 1 to number
+    //4. If number %3 - print Wo
+    //5. If number %5 - print Tech
+    //6. If number %3 and number %5 - print WoTech
+
+    System.out.println();
+    for (int i = 1; i <= number; i++){
+      if (i % 3 == 0 && i % 5 == 0) {
+        System.out.println("WoTech");
+      }
+      else if (i % 3 == 0) {
+        System.out.println("Wo");
+      }
+      else if (i % 5 == 0) {
+        System.out.println("Tech");
+      }
+ 
+      else {
+        System.out.println(i); 
+      }
+    }
+    scanner.close();
+  }
+
+}
