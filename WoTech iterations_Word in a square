@@ -42,3 +42,31 @@ public class Main {
   }
 
 }
+
+
+User provides a text and then the program puts it in a square
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+
+    Scanner scanner = new Scanner(System.in); 
+    System.out.println("Please write a word!");
+    String text = scanner.nextLine(); 
+
+    int textLength = text.length();
+    int equalsLength = textLength + 4;
+    int emptySpaces = textLength + 2;
+    String equals = "=".repeat(equalsLength);
+    String spaces = " ".repeat(emptySpaces);
+    System.out.println(equals);
+    System.out.println("|" + spaces + "|");
+    System.out.println("| " + text + " |");
+    System.out.println("|" + spaces + "|");
+    System.out.println(equals);
+
+    scanner.close();
+  }
+
+}
