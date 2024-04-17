@@ -1,0 +1,190 @@
+//Lesson #9
+//Optimizing WoTech group task
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Please enter a number: ");
+
+    int number = scanner.nextInt(); //15
+
+    for(int i = 1; i <= number; i++){
+      // 1 2 3 4 5 ... 15
+
+      // 7
+      String result = "";
+      if (i % 3 == 0){ //15
+        result += "Wo"; //Add Wo to the result
+      } 
+      if (i % 5 == 0){ // 5 10 15
+        result += "Tech";
+      } 
+      
+      if (result == ""){ 
+        //result = String.valueOf(i); //Then result = i (number)
+        System.out.println(i);
+      }else{
+        System.out.println(result);
+      }
+      
+      
+
+      scanner.close();
+    }
+  }
+}
+
+
+/*
+==============
+|            |
+|   WoTech   |
+|            |
+==============
+Padding is 3 characters long on one side
+Border is 1 character long on one side
+
+WoTech = 6 characters long
+Width of the rectangle = 6 + padding*2 + border*2
+1. User writes a string --> any size
+2. Calculate the width of the rectangle
+  2.1. How long of a message we have
+  2.2. Sum of messageLength and padding and borders
+3. Print out upper border ==============
+4. Print out an empty line with border |    |
+5. Print out border + padding + text + padding + border
+6. Print out an empty line with border |    |
+7. Print out lower border ==============
+  */
+
+{ARRAYS}
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in); //
+
+    int[] arr = new int[5]; // We ask the computer to create a closet
+    //Where we could put 5 different boxes of a number
+    // arr[0] = 5
+    // arr[1] = 8
+    // arr[2] = 13
+    // arr[3] = 54
+    // arr[4] = 80
+
+    for (int i = 0; i < arr.length; i++) { // 0 ... 1 -> 4
+      //int number = scanner.nextInt();
+      //arr[4] = scanner.nextInt();
+      arr[i] = scanner.nextInt(); // 80
+      
+    }
+
+    for (int i = 0; i < arr.length; i++) {
+      System.out.println(arr[i]);
+    }
+    
+    scanner.close();//
+  }
+}
+_____________________________________________
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in); //
+
+    int[] arr = new int[5]; // Bounds is from 0 to 4
+    // We ask the computer to create a closet
+    //Where we could put 5 different boxes of a number
+    arr[0] = 5;
+    arr[1] = 8;
+    arr[2] = 13;
+    arr[3] = 54;
+    arr[4] = 80;
+    // arr[5] Index out of bounds
+
+    for (int i = 0; i < arr.length; i++) { // 0 ... 1 -> 4
+      //int number = scanner.nextInt();
+      //arr[5] = scanner.nextInt();
+      arr[i] = i; // We are overwriting the value of array with i (0, 1, 2, 3, 4)
+      
+    }
+
+    for (int i = 0; i < arr.length; i++) { // 0 -> 4
+      System.out.println(arr[i]); // We are accessing arr[3]
+    }
+    
+    scanner.close();//
+  }
+}
+________________________________________________________
+
+GROUP TASK:
+1. Easy -> Initialize a string array and try to input and output data
+    We want to define an array city names.
+    We want to add values to it (could be through the scanner, or just writing 
+   
+ ```java
+arr[0] = "Riga";
+```
+
+```java
+arr[0] = scanner.nextLine();
+```
+
+-->
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in); 
+
+    String[] arr = new String[7]; 
+
+    for (int i = 0; i < arr.length; i++) { 
+      System.out.println("Please enter any Latvian city name: ");
+      arr[i] = scanner.nextLine(); 
+
+    }
+     System.out.println("Cities in array: ");
+    for (int i = 0; i < arr.length; i++) { 
+      System.out.println(arr[i]); 
+    }
+
+    scanner.close();
+  }
+}
+
+
+2. Challenging -> Find the largest number in the array and find the smallest number in the array
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in); 
+
+    int[] arr = new int[7]; 
+
+    for (int i = 0; i < arr.length; i++) { 
+      System.out.println("Please enter any number: ");
+      arr[i] = scanner.nextInt(); 
+
+    }
+     System.out.println("Numbers in array: ");
+    for (int i = 0; i < arr.length; i++) { 
+      System.out.print(arr[i] + " "); 
+    }
+    Arrays.sort(arr);
+    System.out.println();
+    System.out.println("Smallest number in the array is:" + arr[0]); 
+    System.out.println("Biggest number in the array is:" + arr[6]); 
+    
+    scanner.close();
+  }
+}
