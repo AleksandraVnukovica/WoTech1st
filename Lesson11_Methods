@@ -127,16 +127,32 @@ public class Main{
 }
 
 *Hard:
-1. Create a program, where user can provide a title and a small text below the story.
+/*
+Create a program, where user can provide a title and a small text below the story.
 Title should be wrapped with ====== at top and bottom, based on the title length.
 Example: 
 System asks for title and user provides "WoTech and Java is easy"
 System asks for description and user provides "I have been learning Java for 6 weeks now."
+  */
+import java.util.Scanner;
+public class Main{
+  public static void main(String[] args){
 
-Result: 
-=======================
-WoTech and Java is easy
-=======================
+    Scanner scanner = new Scanner(System.in); 
+    System.out.println("Please write a short phrase:");
+    String text = scanner.nextLine(); 
+    System.out.println(format(text));
+    System.out.println("Please provide a description:");
+    String description = scanner.nextLine(); 
+    System.out.println(description);
 
-I have been learning Java for 6 weeks now.
+  }
+
+  public static String format(String text){
+      int textLength = text.length();
+      String equals = "=".repeat(textLength);
+      return "\n" + equals + "\n" + text + "\n" + equals;
+    }
+
+}
 
