@@ -1,0 +1,142 @@
+public class Main {
+  public static void main(String[] args) {
+    printOutABorder();
+    
+    System.out.println("Hello world!");
+    int number = getARandomNumber();
+    System.out.println(number);
+    printOutABorder();
+}
+
+  public static void printOutABorder() {
+    //Function starts here
+    
+    System.out.println("===============");
+
+    //Function ends here
+  }
+
+
+public static int getARandomNumber() {
+  //Function starts here
+  return 5;
+  //Function ends here
+  }
+}
+
+// Method == Function
+// void == Returns nothing; This is just an action
+
+//Access modifiers:
+//public
+//private
+//protected
+
+//Whether or not the function is static:
+//static
+//
+
+//Return type:
+//void
+//int
+//String
+//int[]
+//boolean
+//... ...
+
+____________________________________________
+public class Main {
+  public static void main(String[] args) {
+
+    int number1 = 5;
+    int number2 = 7;
+    int result = sum(number1, number2);
+    System.out.println(result);
+  }
+
+
+  public static int sum(int number1, int number2){
+    return number1 + number2;
+  }
+
+}
+_________________________________________________
+/*
+Write a name and check whether or not it is atleast 3 char long
+   Write a surname and check whether or not it is atleast 3 char long
+If it's not, then say. Sorry, your name is too short.
+If both of them are valid, say. Thank you, your information has been registered!
+  */
+
+public class Main{
+  public static void main(String[] args){
+
+    String name = "Oskars";
+    String surname = "Klaumanis";
+    boolean isUserNameValid = isNameValid(name); //Give the function "Oskars" as an argument
+    //Because Oskars is longer than 3, isUserNameValid = true
+    boolean isUserSurnameValid = isNameValid(surname); //Give the function "Klaumanis" as an argument
+    //Because Klaumanis is longer than 3, isUserSurnameValid = true
+
+    if(isUserNameValid && isUserSurnameValid){
+      System.out.println("Thank you, your information has been registered!");
+    } else {
+      System.out.println("Sorry, check your name");
+    }
+  }
+
+  public static boolean isNameValid(String name){ //name == "Oskars"
+    if (name.length() < 3){ //Checking whether or not "Oskars" length is less than 3
+      System.out.println("Sorry, you name is too short.");
+      return false;
+    }
+
+    return true;
+  }
+}
+_________________________________________________________________________
+Group task:
+
+/*
+Sum of 2 numbers
+User provides 2 numbers
+Result is a sum of those numbers
+
+Example: 
+User inputs 5
+User inputs 6
+Result: 11
+  */
+import java.util.Scanner;
+public class Main{
+  public static void main(String[] args){
+
+    Scanner scanner = new Scanner(System.in); 
+    System.out.println("Please provide a number No.1: ");
+    int numberOne = scanner.nextInt();
+    System.out.println("Please provide a number No.2: ");
+    int numberTwo = scanner.nextInt();
+    int result = sum(numberOne, numberTwo);
+    System.out.println("The sum of the two numbers is: " + result);
+  }
+
+  public static int sum(int numberOne, int numberTwo){
+      return numberOne + numberTwo;
+    }
+
+}
+
+*Hard:
+1. Create a program, where user can provide a title and a small text below the story.
+Title should be wrapped with ====== at top and bottom, based on the title length.
+Example: 
+System asks for title and user provides "WoTech and Java is easy"
+System asks for description and user provides "I have been learning Java for 6 weeks now."
+
+Result: 
+=======================
+WoTech and Java is easy
+=======================
+
+I have been learning Java for 6 weeks now.
+
