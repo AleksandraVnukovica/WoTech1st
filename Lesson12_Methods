@@ -185,6 +185,29 @@ User provides 7
 Function returns 5
 Main function prints out:
 5 is the smallest number
+>>>
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Enter number one: ");
+    int numberOne = scanner.nextInt();
+    System.out.println("Enter number two: ");
+    int numberTwo = scanner.nextInt();
+    dataCompare(numberOne, numberTwo);
+  }
+    
+  public static void dataCompare(int x, int y) {
+    if (x < y) {
+      System.out.println(x + " is the smallest number");
+    } else {
+      System.out.println(y + " is the smallest number");
+    }
+    
+  }
+}
+<<<<<<
 
 2. Create a function that returns a multiplication of 3 different numbers
 For example: 
@@ -195,6 +218,29 @@ User provides 3
 Function returns 105
 Main function prints out 105
 
+>>>
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Enter number one: ");
+    int numberOne = scanner.nextInt();
+    System.out.println("Enter number two: ");
+    int numberTwo = scanner.nextInt();
+    System.out.println("Enter number three: ");
+    int numberThree = scanner.nextInt();
+    int result = dataMultiplication(numberOne, numberTwo, numberThree);
+    System.out.println("Multiplication result is " + result);
+  }
+    
+  public static int dataMultiplication(int x, int y, int z) {
+    return x * y * z;
+    }
+  
+}
+<<<
+
 3. Create a function that returns a combination of first name and last name
 User provides "Oskars"
 User provides "Klaumanis"
@@ -202,3 +248,61 @@ User provides "Klaumanis"
 Function receives both of the names and returns "Oskars Klaumanis"
 Main function prints out the result
 
+>>>
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Enter your name: ");
+    String name = scanner.nextLine();
+    System.out.println("Enter your surname: ");
+    String surname = scanner.nextLine();
+    String result = nameAndSurname(name, surname);
+    System.out.println(result);
+  }
+    
+  public static String nameAndSurname(String x, String y) {
+    return x + " " + y;
+    }
+  
+}
+<<<
+
+Medium:
+1. Parent simulator, a user provides a number (average grade) to the program, and if it's above 8, then parents go hooray, else they go sad
+
+User creates 3 functions
+    1. Function called hooraay(), is a void, and returns nothing. It's only job is to print out "Hooraay" in the console
+    2. Function called sad(), is a void, and returns nothing. It's only job is to print out "Sad" in the console
+    2. Function is called CheckGrades and receives int as value, but returns nothing. It's job is to call hooray() function, if the grade that it received is above 8, and call sad() function, if the grades received is less than 8
+
+>>>
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Please enter average grade: ");
+    int grade = scanner.nextInt();
+    CheckGrade(grade);
+  }
+    
+  public static void hooraay() {
+    System.out.println("Hooraay");
+    }
+
+  public static void sad() {
+    System.out.println("Sad");
+    }
+
+  public static void CheckGrade (int x) {
+    if (x >= 8) {
+      hooraay();
+    }
+    else {
+      sad();
+    }
+  }
+}
+<<<
