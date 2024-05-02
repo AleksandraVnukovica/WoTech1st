@@ -14,6 +14,7 @@ Try and figure out how to make sure the game is over  and whether or not you los
 5. If you are wrong --> number of mistakes decreases by 1
 6. Every time your guess ir right you need to add that letter to an array of guessed letters
 7. You win when array of guessed letters = array of letters to guess
+8. You lose when you mis
 
 CODE IT.
 
@@ -21,5 +22,11 @@ CODE IT.
 Decompose a simple rock paper scissor game. 
 Think of how many different conditions / combinations are in the game. Write down a winning conditions. Write down losing conditions.
 Write down conditions for draw.
+
+1. There are 3 elements to show: rock, paper, scissors.
+2. Winning conditions: rock over scissors, paper over rock, scissors over paper.
+3. Losing conditions: scissors under rock, rock under paper, paper with scissors (opposite of winning conditions).
+4. Draw conditions: rock vs rock, paper vs paper, scissors vs scissors
+
 
 CODE IT.
