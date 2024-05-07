@@ -1,0 +1,95 @@
+Hangman with ChatGPT help - StringBuilder (not finished)
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {   
+
+      String[] words = {"apple", "banana", "orange", "kiwi", "pineapple", "strawberry", "mango", "watermelon", "peach"};//hardcoded list of words
+      Random random = new Random();
+      int randomNumber = random.nextInt(9); // Generate a random number between 0 and 8
+      String randomWord = words[randomNumber];
+      int numberOfLetters = randomWord.length();
+
+      // Initialize the guessed word with underscores
+      StringBuilder guessedWord = new StringBuilder();
+      for (int i = 0; i < numberOfLetters; i++) {
+          guessedWord.append("_ ");
+      }
+      
+      System.out.println("Let's play a word guessing game! You will have 6 tries to guess my word that consist of" + randomWord + " " + numberOfLetters + "letters:");
+      System.out.println(guessedWord.toString());
+
+      int tries = 6;
+      while (tries >0) {
+        guess(randomWord, guessedWord, tries);
+        tries--;
+      }
+    }
+
+      public static StringBuilder guess(String randomWord, StringBuilder guessedWord, int tries) {
+      System.out.println("Try to guess a letter:");
+      Scanner letterGuess = new Scanner(System.in);
+      String letter = letterGuess.nextLine();
+      if (randomWord.contains(letter)){
+        System.out.println("Correct! The letter " + letter + " is in the word. You have " + tries + " tries left.");
+        for (int i=0; i<randomWord.length(); i++) {
+          if (randomWord.charAt(i) == letter.charAt(0)) {
+            // Update the guessedWord with the correct letter
+            guessedWord.setCharAt(i * 2, letter.charAt(0));
+          }
+        }
+        System.out.println(guessedWord.toString());
+      } else {
+        System.out.println("Wrong guess. You have " + tries + " tries left.");
+      }
+      return guessedWord;
+    }
+}
+
+My code of Hangman (not finished):
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {   
+
+      String[] words = {"apple", "banana", "orange", "kiwi", "pineapple", "strawberry", "mango", "watermelon", "peach"};//hardcoded list of words
+      Random random = new Random();
+      int randomNumber = random.nextInt(9); // Generate a random number between 0 and 8
+      String randomWord = words[randomNumber];
+      int numberOfLetters = randomWord.length();
+      System.out.println("Let's play a word guessing game! You will have 6 tries to guess my word that consist of" + randomWord + " " + numberOfLetters + "letters:");
+      while (numberOfLetters>0) {
+        System.out.print("_ ");
+        numberOfLetters--;
+      }
+
+      int tries = 6;
+      while (tries >0) {
+        guess(randomWord, tries);
+        tries--;
+      }
+    }
+
+      public static void guess(String randomWord, int tries) {
+      System.out.println("Try to guess a letter:");
+      Scanner letterGuess = new Scanner(System.in);
+      String letter = letterGuess.nextLine();
+      if (randomWord.contains(letter)){
+        System.out.println("Correct! The letter " + letter + " is in the word. You have " + tries + " tries left.");
+        for (int i=0; i<randomWord.length(); i++) {
+          if (randomWord.charAt(i) == letter.charAt(0)) {
+            System.out.print(letter + " ");
+          } else {
+            System.out.print("_ ");
+          }
+        }
+        System.out.println();
+      }else{
+        System.out.println("Wrong guess. You have " + tries + " tries left.");
+      }
+      
+    }
+}
