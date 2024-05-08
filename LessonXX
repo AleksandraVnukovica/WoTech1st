@@ -1,0 +1,97 @@
+//What kind of a place in a race you have?
+// [8, 7, 5, 3, 2, 1]
+// your result is 4
+/* 1. The biggest number is 1st place
+2. The second biggest number is 2nd place
+
+Decomposition:
+1. Go through the array - for loop
+2. Fina a number less than our number - if
+3. Increment index by 1
+4. Return index
+5. If we cant the number that is less than our number
+6. Return total count + 1
+*/
+public class Main {
+  public static void main(String[] args) {
+    int[] arr = {8, 7, 5, 3, 2, 1}; //current race results
+    int number = 4; //hardcoded number - our result
+    boolean thePlaceIsFound = false;
+    for (int i=0; i< arr.length; i++) {
+      if(arr[i] < number) {
+        i = i + 1;
+        System.out.println("Our place in race: " + i);
+        thePlaceIsFound = true;
+        break; //if this would be a function, we could write return i
+      }
+    }
+    if (thePlaceIsFound == false) {
+      System.out.println("Our place in race: " + (arr.length + 1));
+    }
+  }
+}
+
+The same solution with function:
+public class Main {
+  public static void main(String[] args) {
+    int[] arr = {8, 7, 5, 3, 2, 1}; //current race results
+    int number = 0; //hardcoded number - our result
+    int place = getThePlace (arr, number);
+    System.out.println("Our place in race: " + place);
+  }
+
+  public static int getThePlace(int[] arr, int number) {
+    for (int i=0; i< arr.length; i++) {
+      if(arr[i] < number) {
+        return i + 1;
+      }
+  }
+    return arr.length + 1;
+  }
+}
+__________________________________
+TASK ABOUT PRIME NUMBER:
+//Detect prime numbers?
+// e.g. 7 - only divides by 7 and only divides by 1
+//in order to check it, we need to divide by all numbers from 1 to 7
+/* 1. Go through the number from 2 to (number - 1) 
+2. Check whether or not it is dividable (number % i == 0)
+3. if the 2nd point is false then it a prime number
+4. If the 2nd point is true then it is not a prime number
+  */
+public class Main {
+  public static void main(String[] args) {
+    boolean isAPrimeNumber = isPrime(8);
+    System.out.println(isAPrimeNumber);
+  }
+
+  public static boolean isPrime (int number) {
+    for (int i =2; i < number; i++) {
+      if (number % i == 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
+   
+
+Adding the checking from 0 to 100 in order to find prime numbers:
+public class Main {
+  public static void main(String[] args) {
+    for (int i= 0; i < 100; i++){
+    boolean isAPrimeNumber = isPrime(i);
+    System.out.println(i + " is a prime number - " + isAPrimeNumber);
+    }
+  }  
+    
+
+  public static boolean isPrime (int number) {
+    for (int i =2; i < number; i++) {
+      if (number % i == 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
