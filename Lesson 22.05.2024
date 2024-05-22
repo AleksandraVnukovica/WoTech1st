@@ -272,4 +272,36 @@ public class Main {
   }
 }
 ________________________________________
+//create an arrayList for integers
+//Put 20 random numbers is arrayList
+//Filter the arrayList and print out only numbers that divide by 2
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.Random;
 
+public class Main {
+  public static void main(String[] args) {
+    var numbersArray = new ArrayList<Integer>();
+    Random random = new Random();
+
+    while (numbersArray.size() < 20){
+      numbersArray.add(random.nextInt(101)); //generates a random integer from 0 to 100 and adds it to the arrayList
+    }
+    printArrayList(numbersArray);
+
+    var filteredArrayList = new ArrayList<Integer>();
+    for (int number : numbersArray){
+      if(number % 2 == 0){
+        filteredArrayList.add(number);
+      }
+    }
+    System.out.print("Filtered ArrayList: ");
+    printArrayList(filteredArrayList);
+  }
+
+  public static void printArrayList(ArrayList<Integer> numbers) {
+    for (int number : numbers) {
+      System.out.print(number + " ");
+    }
+  }
+}
