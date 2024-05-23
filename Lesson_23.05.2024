@@ -1,0 +1,225 @@
+USE OF FUNCTION: .contains
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    var shopsItems = new ArrayList<String>();
+    shopsItems.add("Glass table");
+    shopsItems.add("Wooden table");
+    shopsItems.add("Round table");
+    shopsItems.add("Doors");
+    shopsItems.add("Trapdoor");
+    shopsItems.add("Couch");
+    shopsItems.add("Bed");
+    shopsItems.add("Sofa");
+
+    var filteredShopsItems = new ArrayList<String>();
+    for(var item: shopsItems){
+      if(item.contains("table")){
+        filteredShopsItems.add(item);
+      }
+    }
+    System.out.println(filteredShopsItems);
+  }
+}
+
+_________________________________________
+THE SAME RESULT WHEN USING "STREAM":
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    var shopsItems = new ArrayList<String>();
+    shopsItems.add("Glass table");
+    shopsItems.add("Wooden table");
+    shopsItems.add("Round table");
+    shopsItems.add("Doors");
+    shopsItems.add("Trapdoor");
+    shopsItems.add("Couch");
+    shopsItems.add("Bed");
+    shopsItems.add("Sofa");
+
+    var filteredShopsItems = shopsItems
+      .stream()
+      .filter(item -> item.contains("table"))
+      .collect(Collectors.toList());
+    
+    System.out.println(filteredShopsItems);
+  }
+}
+________________________________
+ALSO WE CAN USE SKIP and LIMIT in STREAM:
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    var shopsItems = new ArrayList<String>();
+    shopsItems.add("Glass table");
+    shopsItems.add("Wooden table");
+    shopsItems.add("Round table");
+    shopsItems.add("Doors");
+    shopsItems.add("Trapdoor");
+    shopsItems.add("Couch");
+    shopsItems.add("Bed");
+    shopsItems.add("Sofa");
+
+    var filteredShopsItems = shopsItems
+      .stream()
+      .skip(3)
+      .limit(2)
+     // .filter(item -> item.contains("table"))
+      .collect(Collectors.toList());
+    
+    System.out.println(filteredShopsItems);
+  }
+}
+__________________________________________
+USING FUNCTION .forEach , but the syntax was changed in the 17th line:
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    var shopsItems = new ArrayList<String>();
+    shopsItems.add("Glass table");
+    shopsItems.add("Wooden table");
+    shopsItems.add("Round table");
+    shopsItems.add("Doors");
+    shopsItems.add("Trapdoor");
+    shopsItems.add("Couch");
+    shopsItems.add("Bed");
+    shopsItems.add("Sofa");
+
+    shopsItems
+      .stream()
+      .skip(3)
+      .limit(2)
+      .forEach(x -> System.out.println("TEST " + x));
+     
+  }
+}
+___________________________________________________
+USING .filter even without declaring new filteredArray:
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    var shopsItems = new ArrayList<String>();
+    shopsItems.add("Glass table");
+    shopsItems.add("Wooden table");
+    shopsItems.add("Round table");
+    shopsItems.add("Doors");
+    shopsItems.add("Trapdoor");
+    shopsItems.add("Couch");
+    shopsItems.add("Bed");
+    shopsItems.add("Sofa");
+
+    shopsItems
+      .stream()
+      .filter(x -> x.contains("table"))
+      .forEach(x -> System.out.println("TEST " + x));
+   
+    
+  }
+}
+_____________________________________________________
+we add PRINT method to a STREAM:
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    var shopsItems = new ArrayList<String>();
+    shopsItems.add("Glass table");
+    shopsItems.add("Wooden table");
+    shopsItems.add("Round table");
+    shopsItems.add("Doors");
+    shopsItems.add("Trapdoor");
+    shopsItems.add("Couch");
+    shopsItems.add("Bed");
+    shopsItems.add("Sofa");
+
+    shopsItems
+      .stream()
+     // .filter(x -> x.contains("table"))
+      .forEach(x -> Print(x));
+  }
+public static void Print(String text) {
+  System.out.println();
+  System.out.println(text);
+  }
+    
+}
+______________________________________________
+GROUP TASK:
+// create an integer arrayList of 15 random numbers. Skip the first 5 numbers. Print them out.
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.Random;
+
+public class Main {
+  public static void main(String[] args) {
+    var numbersList = new ArrayList<Integer>();
+    Random random = new Random();
+
+    while (numbersList.size() < 15){
+      numbersList.add(random.nextInt(101));
+    }
+
+    numbersList
+      .stream()
+      .skip(5)
+      .forEach(number -> System.out.println(number));
+  }
+}
+
+__________________________________________________
+// create an integer arrayList of 20 random numbers, make sure they divide by 2. Skip the first 5 numbers, limit to three and Print them out from another function.
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.Random;
+
+public class Main {
+  public static void main(String[] args) {
+    var numbersList = new ArrayList<Integer>();
+    Random random = new Random();
+
+    while (numbersList.size() < 20){
+      int number = random.nextInt(101);
+      if (number %2 == 0) {
+        numbersList.add(number);
+      }
+    }
+    print("Original array: " + numbersList);
+    print("Filtered array:");
+    numbersList
+      .stream()
+      .skip(5)
+      .limit(3)
+      .forEach(number -> print(number));
+  }
+  public static void print (int x) {
+  System.out.println(x);  
+  }
+
+  public static void print(String text) {
+    System.out.println(text);
+  }
+}
