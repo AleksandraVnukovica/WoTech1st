@@ -1,0 +1,46 @@
+// Reference type vs value type
+
+public class Main {
+  public static void main(String[] args) {
+    int number = 20;
+    number = changeNumber(number); //value type
+    System.out.println(number);
+    int numberVoid = 20;
+    changeNumberVoid(numberVoid); //reference type
+    System.out.println(numberVoid);
+  }
+
+  public static int changeNumber(int number){
+    number = 55;
+    return number;
+  }
+
+  public static void changeNumberVoid(int number){
+    number = 55; //THIS NUMBER WILL NOT CHANGE the numberVoid value
+  }
+}
+
+______________________________
+
+// Reference type vs value type
+
+public class Main {
+  public static void main(String[] args) { //Main method
+    int[] array = {1, 2, 3, 4, 5}; // declare an array
+    array = changeArray(array); //change the content of the array
+    printOutArray(array) //print out the values of the array
+  }
+
+  public static int[] changeArray(int[] array) {
+    for (int i = 0; i < array.length; i++) {
+      array[i] = 0;
+    }
+    return array;
+  }
+
+  public static void printOutArray(int[] array){
+    for(int i = 0; i < array.length; i++) {
+      System.out.println(array[i]);
+    }
+  }
+}
