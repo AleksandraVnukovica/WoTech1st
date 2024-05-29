@@ -1,0 +1,203 @@
+Main.java
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Person person = new Person();
+    person.name = "oskars"; //it's variable inside a class
+    person.surname = "Klaumanis";
+    
+    Person person2 = new Person();
+    person2.name = "Elchin";
+    person2.surname = "Datorium";
+    System.out.println(person2.surname);
+  }
+}
+
+Person.java
+
+public class Person {
+    public String name;
+    public String surname;
+
+  // new Person("Oskars", "Klaumanis");
+  //This is a constructor
+  // Constructor always launches when you create a new object -> new Person(name, surname);
+  // You can provide values to constructor
+  public Person(String inputName, String inputSurname){
+    name = inputName;
+    surname = inputSurname;
+  }
+
+  public Person(){
+
+  }
+}
+// Main.java -> new Person();
+
+_______________________________________________________
+
+Main.java --> 2nd way of initializing an object
+
+public class Main {
+    public static void main(String[] args) {
+
+        Person person = new Person("Oskars", "Klaumanis");
+
+        Person person2 = new Person();
+        person2.name = "Elchin";
+        person2.surname = "Datorium";
+
+
+        System.out.println(person.name);
+        System.out.println(person2.name);
+    }
+}
+
+_________________________________________________
+
+Another example:
+
+// let's create a book, that has it's author, and book title to it
+// We create a book, and then we print out the values of the book in a fancy way
+
+// Print out title
+// __________________
+// Author
+
+Main.java:
+
+public class Main {
+  public static void main(String[] args) {
+    var book = new Book();
+    book.title = "The Hobbit";
+    book.author = "J.R.R. Tolkien";
+    book.pageCount = 310;
+    
+    System.out.println(book.title);
+    System.out.println(book.author);
+    System.out.println(book.pageCount);
+  }
+}
+
+Book.java:
+public class Book {
+  public String title;
+  public String author;
+  public int pageCount;
+
+
+  }
+
+
+_______________________________
+After we add constructor:
+
+Main.java
+// let's create a book, that has it's author, and book title to it
+// We create a book, and then we print out the values of the book in a fancy way
+
+// Print out title
+// __________________
+// Author
+
+public class Main {
+    public static void main(String[] args) {
+        var book = new Book("The Hobbit", "J.R.R. Tolkien", 310);
+
+        System.out.println(book.title);
+        System.out.println(book.author);
+        System.out.println(book.pageCount);
+
+        var book2 = new Book();
+        System.out.println(book2.title);
+        System.out.println(book2.author);
+        System.out.println(book2.pageCount);
+    }
+}
+
+Book.java
+public class Book{
+    public String title;
+    public String author;
+    public int pageCount;
+
+    public Book(String title, String author, int pageCount){
+      this.title = title;
+      this.author = author;
+      this.pageCount = pageCount;
+    }
+
+    public Book(){
+      this.title = "Unknown";
+      this.author = "Unknown";
+    }
+}
+
+__________________________
+TEAMWORK
+Create a class for an object that you can find on your table or for something you own - 
+For example: Vehicle
+Brand
+Year
+Color
+OwnersName
+
+Initialize 3 different objects out of this class, and print it out.
+
+
+Try to use as many data types as you can (int, String, boolean and so on)
+
+* Main.java:
+public class Main {
+  public static void main(String[] args) {
+
+    var computer = new Computer("Apple", "MacBook Pro", 989.95, 2020, "Silver", true);
+    System.out.println("Computer brand: " + computer.brand);
+    System.out.println("Name: " + computer.name);
+    System.out.println("Price: " + computer.price + " EUR");
+    System.out.println("Year of production: " + computer.year);
+    System.out.println("Computer color: " + computer.color);
+    System.out.println("Computer is working: " + computer.isWorking);
+    System.out.println();
+    
+    var computer2 = new Computer("Dell", "Inspiron", 599.95, 2022, "Black", true);
+    System.out.println("Computer brand: " + computer.brand);
+    System.out.println("Name: " + computer.name);
+    System.out.println("Price: " + computer.price + " EUR");
+    System.out.println("Year of production: " + computer.year);
+    System.out.println("Computer color: " + computer.color);
+    System.out.println("Computer is working: " + computer.isWorking);
+    System.out.println();
+    
+    var computer3 = new Computer("HP", "Pavilion", 499.95, 2012, "Black", false);
+    System.out.println("Computer brand: " + computer.brand);
+    System.out.println("Name: " + computer.name);
+    System.out.println("Price: " + computer.price + " EUR");
+    System.out.println("Year of production: " + computer.year);
+    System.out.println("Computer color: " + computer.color);
+    System.out.println("Computer is working: " + computer.isWorking);
+    System.out.println();
+  }
+}
+
+* Computer.java:
+public class Computer{
+    public String brand;
+    public String name;
+    public double price;
+    public int year;
+    public String color;
+    public boolean isWorking;
+
+    public Computer(String brand, String name, double price, int year, String color, boolean isWorking)
+    {
+        this.brand = brand;
+        this.name = name;
+        this.price = price;
+        this.year = year;
+        this.color = color;
+        this.isWorking = isWorking;
+    }
+}
