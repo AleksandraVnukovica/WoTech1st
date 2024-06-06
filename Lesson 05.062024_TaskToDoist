@@ -4,20 +4,37 @@ import java.util.Scanner;
 
 public class Main { //Is the UI - frontend
   public static TaskManager taskManager = new TaskManager();
-  
+
   public static void main(String[] args) {
-    createTask();
-    showTodoList();
     //create a menu
     //Put it in a while loop
     //use scanner
     //if the user presses 1, we call CreateTask
     //if the user presses 2, we call showTodoList
-    //if the user presses 3, mark a task with isDone - true
+    //if the user presses 3, ask the task name with isDone - true
 
 
     //if the user presses x, close the loop
-
+    while(true) {
+      Scanner scanner = new Scanner(System.in);
+      System.out.println("Press 1 to create a task");
+      System.out.println("Press 2 to show the todo list");
+      System.out.println("Press 3 to set a task as daone");
+      
+      var userInput = scanner.nextLine();
+      if(userInput.equals("1")){
+         createTask();
+      } else if (userInput.equals("2")) {
+        showTodoList();
+      } else if(userInput.equals("3")){
+        showTodoList();
+        System.out.println("Etner the finished task name:");
+        var taskName = scanner.nextLine();
+        taskManager.setTaskAsDone(taskName);
+      }else{
+        break;
+      }
+    }
   }
 
   public static void createTask(){
@@ -29,7 +46,7 @@ public class Main { //Is the UI - frontend
     //Input the task description
     System.out.println("Please input the description of the task");
     var description = scanner.nextLine();
-    scanner.close();
+
 
     var task = new Task(name, description);
     taskManager.addTask(task);
@@ -59,7 +76,7 @@ public class Task {
     this.name = name;
     this.description = description;
   }
-  
+
 }
 
 TaskManager.java:
@@ -87,5 +104,12 @@ public class TaskManager {
 
   public ArrayList<Task> getTasks(){
     return tasks;
+  }
+
+  public void setTaskAsDone (String taskName){
+    tasks.stream()
+      .filter(x -> x.name.equals(taskName))
+      .findFirst()
+      .ifPresent(x -> x.isDone = true);
   }
 }
