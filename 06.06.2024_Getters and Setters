@@ -1,0 +1,35 @@
+Main.java:
+public class Main {
+
+  public static void main(String[] args) {
+    var item = new Item();
+    item.setName("This is a name");
+    var itemName = item.getName();
+  }
+}
+
+Item.java:
+public class Item {
+  private String name; 
+  private int cost; //Gold pieces
+
+  public void setName(String name){ //setter
+
+    //Do some logic here
+    this.name = name;
+    //Do some logic here
+    
+  }
+
+  public String getName(){
+    return name;
+  }
+
+  public void setCost(int cost){ //setter
+    this.cost = cost;
+  }
+
+  public in getCost() {
+    return cost;
+  }
+}
