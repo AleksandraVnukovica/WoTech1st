@@ -1,0 +1,106 @@
+/* Develop a simple book management application with ArrayList.
+User should be able to add a book to ArrayList.
+User should be able to remove a book from ArrayList. */
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+    public static BookManagement bookManagement = new BookManagement();
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to your book management!");
+
+        while(true) {
+            System.out.println("Press 1 if you want to create a new book entry");
+            System.out.println("Press 2 if you want to read all book entries");
+            System.out.println("Press 3 if you want to delete a book entry");
+            System.out.println("Press 'x' if you want to exit");
+
+            String decision = scanner.nextLine();
+            if (decision.equals("1")) {
+                createEntry();
+            } else if (decision.equals("2")) {
+                readEntries();
+            } else if (decision.equals("3")) {
+                deleteEntry();
+            } else if (decision.equals("x")) {
+                break;
+            } else {
+                System.out.println("Wrong input");
+            }
+        }
+
+        scanner.close();
+    }
+
+    public static void createEntry() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the name of the book");
+        String bookName = scanner.nextLine();
+        System.out.println("Please enter the author of the book");
+        String bookAuthor = scanner.nextLine();
+        System.out.println("Please enter the language of the book");
+        String bookLanguage = scanner.nextLine();
+
+        Entry entry = new Entry(bookName, bookAuthor, bookLanguage);
+        bookManagement.addEntry(entry);
+    }
+
+    public static void readEntries() {
+        ArrayList<Entry> books = bookManagement.getBooks();
+        for (Entry entry : books) {
+            System.out.println("This is book entry: ");
+            System.out.println("Book name: " + entry.bookName);
+            System.out.println("Book author: " + entry.bookAuthor);
+            System.out.println("Book language: " + entry.bookLanguage);
+            System.out.println("---------------------");
+        }
+    }
+
+    public static void deleteEntry() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the name of the book to delete");
+        String bookName = scanner.nextLine();
+        bookManagement.removeEntry(bookName);
+    }
+
+}
+
+class Entry {
+    // template for a book entry (name, author, language and status - read or not)
+    public String bookName;
+    public String bookAuthor;
+    public String bookLanguage;
+
+
+    public Entry(String bookName, String bookAuthor, String bookLanguage) {
+        this.bookName = bookName;
+        this.bookAuthor = bookAuthor;
+        this.bookLanguage = bookLanguage;
+    }
+}
+
+class BookManagement {
+    private ArrayList<Entry> books = new ArrayList<>();
+
+    public void addEntry(Entry entry) {
+        books.add(entry);
+    }
+
+    public ArrayList<Entry> getBooks() {
+        return books;
+    }
+
+    public void removeEntry(String bookName) {
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).bookName.equals(bookName)) {
+                books.remove(i);
+                System.out.println("Book " + bookName + " removed");
+                return;
+            }
+        }
+        System.out.println("Book " + bookName + " not found");
+    }
+}
