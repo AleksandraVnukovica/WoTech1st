@@ -1,0 +1,168 @@
+Main.java:
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Main {
+
+  public static Shop shop = new Shop();
+
+    public static void main(String[] args ) {
+      Scanner scanner = new Scanner(System.in);
+      while(true) {
+        System.out.println("Press 1 if you want to enter new item");
+        System.out.println("Press 2 if you want to read all items entries");
+        System.out.println("Press 3 if you want to delete a book entry");
+        System.out.println("Press 'x' if you want to exit");
+        
+        String decision = scanner.nextLine();
+        if (decision.equals("1")) {
+            addItem();
+        } else if (decision.equals("2")) {
+            getItems();
+        } else if (decision.equals("3")) {
+            removeItem();
+        } else if (decision.equals("x")) {
+            break;
+        } else {
+            System.out.println("Wrong input");
+        }
+      }
+  
+      scanner.close();
+    }
+
+    public static void addItem() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the item id");
+        int id = scanner.nextInt();
+        System.out.println("Please enter name of the item");
+        String name = scanner.nextLine();
+        System.out.println("Please enter the price of the item");
+        int cost = scanner.nextInt();
+
+        Item item = new Item(id, name, cost);
+        shop.addItem(item);
+    }
+
+    public static void getItems() {
+        ArrayList<Item> items = shop.getItems();
+        for (Item item : items) {
+            System.out.println(item.getName());
+        }
+    }
+
+     public static void removeItem() {
+          Scanner scanner = new Scanner(System.in);
+          System.out.println("Please enter the id of the item you want to remove");
+          int id = scanner.nextInt();
+          shop.removeItem(id);
+      }
+}
+
+public class Item {
+  private int id;
+  private String name; 
+  private int cost;
+
+  public Item(int id, String name, int cost) {
+    this.id = id;
+    this.name = name;
+    this.cost = cost;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setName(String name){ //setter
+
+    //Do some logic here
+    this.name = name;
+    //Do some logic here
+
+  }
+
+  public String getName(){
+    return name;
+  }
+
+  public void setCost(int cost){ //setter
+    // Check whether or not the user is a cashier, and if it is, then allow to change the cost
+    this.cost = cost;
+  }
+
+  public int getCost() {
+    return cost;
+  }
+}
+
+import java.util.ArrayList;
+
+public class Shop {
+  //Shop + itemManager
+  //cart functionality
+  //Item management funcitonality
+  //checkout - get all the items in the cart and show the total price of all items
+
+  //AddItem+
+  //RemoveItem+
+  //Get the items list+
+  //UpdateItem+
+//RemoveItemFromCart
+  //Checkout (get the totalPrice)+
+
+  private ArrayList<Item> items = new ArrayList<Item>();
+  private ArrayList<Item> cart = new ArrayList<Item>();
+
+  public ArrayList<Item> getItems(){
+    return items;
+  }
+  
+  public void addItem(Item item) {
+    //add item to the list
+    items.add(item);
+  }
+
+  public void removeItem(int id) {
+    for (var item : items) {
+      if (item.getId() == id) {
+        items.remove(item);
+        return;
+      }
+    }
+  }
+
+  public void removeItemFromCart(int id) {
+    for (var item : cart) {
+      if (item.getId() == id) {
+        cart.remove(item);
+        return;
+      }
+    }
+  }
+
+  public void updateItem(int id, String name, int cost) {
+    // Find the item with the id
+    // Update the item with name and cost
+
+    for (var item : items) {
+      if (item.getId() == id) {
+        item.setName(name);
+        item.setCost(cost);
+        return;
+      }
+    }
+  }
+
+  public void addItemToCart(Item item) {
+    cart.add(item);
+  }
+
+  public int checkout() { //get the total cost of the cart
+    int sum = 0;
+    for (var item : cart) {
+      sum += item.getCost();
+    }
+    return sum;
+  }
+}
