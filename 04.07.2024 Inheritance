@@ -66,3 +66,89 @@ public class SwedPaymentService extends PaymentService {
     System.out.println("This is a payment to Swedbank service");
   }
 }
+
+
+TEAMWORK - PIZZAS AND BURGERS
+
+import java.util.ArrayList;
+
+public class Main {
+  public static void main(String[] args) {
+    var food = new ArrayList<Food>();
+
+    var burger1 = new Burger();
+    food.add(burger1);
+    burger1.name = "Big Mac";
+    burger1.price = 5;
+    burger1.calorie = 600;
+
+    var burger2 = new Burger();
+    food.add(burger2);
+    burger2.name = "Quarter Pounder";
+    burger2.price = 4;
+    burger2.calorie = 525;
+
+    var pizza1 = new Pizza();
+    food.add(pizza1);
+    pizza1.name = "Pepperoni";
+    pizza1.price = 3;
+    pizza1.calorie = 450;
+
+    var pizza2 = new Pizza();
+    food.add(pizza2);
+    pizza2.name = "4 Cheeses";
+    pizza2.price = 2;
+    pizza2.calorie = 350;
+
+    var pizza3 = new Pizza();
+    food.add(pizza3);
+    pizza3.name = "Hawaiian";
+    pizza3.price = 4;
+    pizza3.calorie = 550;
+
+    for (var item : food) {
+      item.printInfo();
+      item.sellItem();
+      item.eatItem();
+    }
+    
+  }
+}
+
+public class Food {
+  public String name;
+  public int price;
+  public int calorie;
+
+  public void sellItem() {
+    System.out.println("This item was sold");
+  }
+
+  public void eatItem() {
+    System.out.println("This item was eaten");
+  }
+
+  public void printInfo() {
+    System.out.println("Name: " + name + ", Calories: " + calorie + ", Price: " + price);
+  }
+}
+
+public class Burger extends Food {
+
+  @Override
+  public void sellItem() {
+    System.out.println("This burger was sold");
+  }
+
+  public void eatItem() {
+    System.out.println("This item was eaten");
+  }
+}
+
+public class Pizza extends Food {
+
+  @Override
+  public void eatItem() {
+    System.out.println("This pizza was eaten");
+  }
+}
